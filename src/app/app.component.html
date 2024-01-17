@@ -1,0 +1,31 @@
+<mat-toolbar>
+    <span>Exchange rate ( National Bank of Ukraine API ) :</span>
+    <div class="currency-box" *ngIf="popularCurrencies">
+        <div class="currency-item" *ngFor="let currency of popularCurrencies">
+            <p class="currency-title">
+                1 {{ currency.cc }} = {{ currency.rate | number: '1.2-2' }}
+                <span class="">UAH</span>
+            </p>
+        </div>
+    </div>
+</mat-toolbar>
+
+<mat-card-content class="wrapper">
+    <mat-card>
+        <mat-card-subtitle>Choice currency and enter amount</mat-card-subtitle>
+        <div class="wrapper -no-padding actions-box" *ngIf="currenciesList">
+            <app-currency-control
+                [currenciesList]="currenciesList"
+                [resultInputData]="this.valueFromRightSelect / this.valueFromLeftSelect * this.valueFromRightInput"
+                (selectedValue)="onCurrencySelectedLeft($event)"
+                (fromInputData)="onInputEnteredDataLeft($event)"
+            ></app-currency-control>
+            <app-currency-control
+                [currenciesList]="currenciesList"
+                [resultInputData]="this.valueFromLeftSelect / this.valueFromRightSelect * this.valueFromLeftInput"
+                (selectedValue)="onCurrencySelectedRight($event)"
+                (fromInputData)="onInputEnteredDataRight($event)"
+            ></app-currency-control>
+        </div>
+    </mat-card>
+</mat-card-content>

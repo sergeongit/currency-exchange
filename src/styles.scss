@@ -1,0 +1,93 @@
+$mat-color-accent: #c2185b;
+$mat-bg-color-main: #303030;
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: $mat-bg-color-main;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+// Firefox
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    padding: 24px;
+
+    &.-no-padding {
+        padding: 0;
+    }
+}
+
+
+// MATERIAL custom styles
+//
+mat-card-actions.mat-card-actions {
+    margin: 0;
+}
+
+mat-list.mat-list-base .mat-list-item {
+    height: auto;
+}
+
+mat-list.mat-list-base .mat-list-item .mat-list-item-content {
+    padding: 0;
+}
+
+
+// SCROLLBAR custom styles
+//
+* {
+    // for Firefox
+    scrollbar-color: $mat-color-accent rgba(255, 64, 129, 0.2);
+    scrollbar-width: 8px;
+    // for Webkit
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: rgba(255, 64, 129, 0.6);
+        border-radius: 4px;
+        opacity: 0.3;
+    }
+    &::-webkit-scrollbar-track {
+        background: rgba(255, 64, 129, 0.2);
+        border-radius: 2px;
+    }
+    &:hover {
+        &::-webkit-scrollbar-thumb {
+            background: $mat-color-accent;
+        }
+    }
+    &:active {
+        &::-webkit-scrollbar-thumb {
+            opacity: 1;
+            background: rgba(255, 64, 129, 0.6);
+        }
+        &::-webkit-scrollbar-track {
+            opacity: 1;
+        }
+    }
+}
+
